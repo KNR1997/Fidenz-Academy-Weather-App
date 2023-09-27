@@ -10,24 +10,26 @@ function Home() {
   const [city, setCity] = useState();
   const [response, setResponse] = useState();
 
+  // Get cities data from json when page reload for the first time.
   useEffect(() => {
     setJsonData(cities.List);
   }, []);
 
+  // Each time user input city name, check the validity of the cityName.
   useEffect(() => {
     checkValidCity(cityName);
   }, [cityName]);
 
+  // Check if the input CityName is valid. Send Api call/notify user.
   const handleSearch = async () => {
     if (checkValidCity(cityName)) {
-      console.log(city);
       fetchData();
     } else {
-      console.log("not a valid city");
       notify();
     }
   };
 
+  // Toast Warning
   const notify = () => {
     toast.error("Invalid City Name", {
       position: "top-right",
@@ -41,6 +43,7 @@ function Home() {
     });
   };
 
+  // Check the cityName valid or not. SetCity state if true.
   const checkValidCity = (cityName) => {
     let result = false;
     jsonData.forEach((object) => {
@@ -52,6 +55,7 @@ function Home() {
     return result;
   };
 
+  // Fetch data from WeatherApp.org
   const fetchData = async () => {
     const apiKey = "cd2009142a894276f5cde9b9ef653137";
     const apiUrl = "http://api.openweathermap.org/data/2.5/group";
@@ -66,14 +70,10 @@ function Home() {
 
       const jsonData = await response.json();
       setResponse(jsonData.list[0]);
-      console.log(jsonData);
     } catch (err) {
       console.log(err);
     }
   };
-
-  console.log("cityName", cityName);
-  console.log("city", city);
 
   return (
     <div id="home">
