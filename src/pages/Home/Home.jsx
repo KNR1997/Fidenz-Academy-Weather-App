@@ -12,21 +12,35 @@ function Home() {
   const [cityName, setCityName] = useState();
   const [city, setCity] = useState();
   const [response, setResponse] = useState();
+  const [cachData, setCachData] = useState(null);
 
   // Get cities data from json when page reload for the first time.
   useEffect(() => {
     setJsonData(cities.List);
   }, []);
 
-  // Each time user input city name, check the validity of the cityName.
+  // Check the LocalStorage before sending api call.
   useEffect(() => {
     checkValidCity(cityName);
   }, [cityName]);
 
   // Check if the input CityName is valid. Send Api call or toast message error.
   const handleSearch = async () => {
+    const currentTime = new Date().getTime();
+
     if (checkValidCity(cityName)) {
-      fetchData();
+      const cachedData = localStorage.getItem("weatherData");
+      const jsonData = JSON.parse(cachedData);
+      const cachedTimestamp = localStorage.getItem("weatherDataTimestamp");
+      const expirationTime = parseInt(cachedTimestamp) + 5 * 60 * 1000; // 5 minutes in milliseconds
+
+      if (jsonData && jsonData.name.toLowerCase() === cityName.toLowerCase() && currentTime < expirationTime) {
+        console.log("no api call, cached data used");
+        setResponse(jsonData);
+      } else {
+        console.log("send api call");
+        fetchData();
+      }
     } else {
       notify();
     }
@@ -72,13 +86,15 @@ function Home() {
       }
 
       const jsonData = await response.json();
-      setResponse(jsonData.list[0]);
+      const cityWeather = jsonData.list[0];
+      setResponse(cityWeather);
+      localStorage.setItem("weatherData", JSON.stringify(cityWeather));
+      localStorage.setItem('weatherDataTimestamp', new Date().getTime().toString());
+
     } catch (err) {
       console.log(err);
     }
   };
-
-  console.log(response)
 
   return (
     <div id="home">
