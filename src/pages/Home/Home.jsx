@@ -3,6 +3,9 @@ import cities from "../../assests/cities.json";
 import "./home.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import WeatherIcon from "../../components/icons/WeatherIcon";
+import CloudIcon from "../../components/icons/CloudIcon";
+import NavigationIcon from "../../components/icons/NavigationIcon";
 
 function Home() {
   const [jsonData, setJsonData] = useState([]);
@@ -20,7 +23,7 @@ function Home() {
     checkValidCity(cityName);
   }, [cityName]);
 
-  // Check if the input CityName is valid. Send Api call/notify user.
+  // Check if the input CityName is valid. Send Api call or toast message error.
   const handleSearch = async () => {
     if (checkValidCity(cityName)) {
       fetchData();
@@ -75,10 +78,13 @@ function Home() {
     }
   };
 
+  console.log(response)
+
   return (
     <div id="home">
       <div className="home container">
         <div className="title">
+          <WeatherIcon />
           <h2>Weather App</h2>
         </div>
         <div className="search">
@@ -98,12 +104,13 @@ function Home() {
               <div className="city-name">{response.name}</div>
               <div className="top-divide">
                 <div className="divide-left">
+                  <CloudIcon />
                   {response.weather[0].description}
                 </div>
                 <div className="divide-right">
-                  <h3 className="temparatue">{response.main.temp}</h3>
-                  <h4 className="sm">Temp Min: {response.main.temp_min}</h4>
-                  <h4 className="sm">Temp Max: {response.main.temp_max}</h4>
+                  <h3 className="temparatue">{response.main.temp} °C</h3>
+                  <h4 className="sm">Temp Min: {response.main.temp_min} °C</h4>
+                  <h4 className="sm">Temp Max: {response.main.temp_max} °C</h4>
                 </div>
               </div>
             </div>
@@ -115,7 +122,10 @@ function Home() {
                   Visibility: {response.visibility / 1000}km
                 </h4>
               </div>
-              <div>
+              <div className="speed-navigation">
+                <div className="navi-icon">
+                  <NavigationIcon />
+                </div>
                 {response.wind.speed}m/s {response.wind.deg} Degree
               </div>
               <div>

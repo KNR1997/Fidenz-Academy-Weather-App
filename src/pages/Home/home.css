@@ -26,7 +26,7 @@
 #home .home {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 50px;
+	padding: 0 auto;
     align-items: center;
 	justify-content: center;
 }
@@ -37,6 +37,11 @@
 }
 .title{
     padding: 20px 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 }
 input{
     color: white;
@@ -57,8 +62,8 @@ button{
 }
 
 .city{
-	width: 500px;
-	height: 300px;
+	width: 700px;
+	height: 400px;
 	position: relative;
 	padding: 20px 0;
 	display: flex;
@@ -73,11 +78,15 @@ button{
 	height: 60%;
 	width: 100%;
 	color: white;
+	padding-top: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: rgb(20, 132, 207);
+	.city-name{
+		font-size: 2em;
+	}
 }
 
 .top .top-divide{
@@ -86,11 +95,24 @@ button{
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	gap: 20px;
+	text-align: center;
+	gap: 50px;
+	.divide-right{
+		.temparatue{
+			padding: 0 0 10px 0;
+		}
+
+	}
+}
+.top-divide .divide-left{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 .temparatue{
-	font-size: 1.8em;
-	font-weight: 600;
+	font-size: 2em;
+	font-weight: 400;
 }
 .sm{
 	font-size: 1.1em;
@@ -107,4 +129,59 @@ button{
 	align-items: center;
 	justify-content: center;
 	gap: 50px;
+	.speed-navigation{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.navi-icon{
+			padding-bottom: 5px;
+		}
+	}
+}
+
+
+@media screen and (max-width: 768px) {
+	.city{
+		width: 250px;
+		height: 500px;
+		position: relative;
+		padding: 20px 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border: none;
+		border-radius: 8px;
+	}
+	.top{
+		height: 60%;
+		width: 100%;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: rgb(20, 132, 207);
+	}
+	.top .top-divide{
+		padding: 20px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+	}
+	.bottom{
+		height: 40%;
+		width: 100%;
+		padding: 10px 0;
+		color: white;
+		background-color: rgb(46, 58, 66);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+	}
 }
