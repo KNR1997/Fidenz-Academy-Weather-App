@@ -55,3 +55,56 @@ button{
     border-radius: 4px;
     cursor: pointer;
 }
+
+.city{
+	width: 500px;
+	height: 300px;
+	position: relative;
+	padding: 20px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	border-radius: 8px;
+}
+
+.top{
+	height: 60%;
+	width: 100%;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(20, 132, 207);
+}
+
+.top .top-divide{
+	padding: 20px 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+.temparatue{
+	font-size: 1.8em;
+	font-weight: 600;
+}
+.sm{
+	font-size: 1.1em;
+	font-weight: 400;
+}
+
+.bottom{
+	height: 40%;
+	width: 100%;
+	color: white;
+	background-color: rgb(46, 58, 66);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+}
