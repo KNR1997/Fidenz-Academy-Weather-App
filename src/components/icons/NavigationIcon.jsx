@@ -16,9 +16,9 @@ function NavigationIcon() {
             fill="none"
             points="21.5 2.5 2.5 10.2 9.6 14.4 13.8 21.5 21.5 2.5"
             stroke="#ffff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
           />
         </g>
       </g>

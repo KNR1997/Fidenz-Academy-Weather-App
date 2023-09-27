@@ -28,9 +28,9 @@ function WeatherIcon() {
           d="M350.939,480.984a26.2,26.2,0,1,0-25.126-33.607,16.517,16.517,0,0,0-3.41-.348,16.978,16.978,0,1,0,0,33.955Z"
           fill="none"
           stroke="#000000"
-          stroke-linecap="round"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeLinecap="round"
+          strokeMiterlimit="10"
+          strokeWidth="3"
           opacity="0.15"
         />
         <path
@@ -39,9 +39,9 @@ function WeatherIcon() {
           d="M350.939,471.324a26.2,26.2,0,1,0-25.126-33.607,16.517,16.517,0,0,0-3.41-.348,16.978,16.978,0,1,0,0,33.955Z"
           fill="none"
           stroke="#000000"
-          stroke-linecap="round"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeLinecap="round"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         />
         <line
           id="Line_6"
@@ -50,8 +50,8 @@ function WeatherIcon() {
           transform="translate(321.299 407.595)"
           fill="none"
           stroke="#814dff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         />
         <line
           id="Line_7"
@@ -60,8 +60,8 @@ function WeatherIcon() {
           transform="translate(297.623 431.271)"
           fill="none"
           stroke="#814dff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         />
       </g>
     </svg>
